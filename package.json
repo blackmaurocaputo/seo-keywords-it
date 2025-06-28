@@ -1,0 +1,28 @@
+{
+  "name": "seo-keywords-it",
+  "version": "1.0.0",
+  "description": "Libreria JavaScript per estrazione di keyword utili alla SEO da testi in italiano.",
+  "keywords": [
+    "keyword",
+    "keywords",
+    "estrattore",
+    "estrai",
+    "parole chiave",
+    "seo",
+    "italian",
+    "italiano",
+    "text analysis",
+    "nlp"
+  ],
+  "license": "MIT",
+  "author": "Mauro Caputo",
+  "type": "commonjs",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blackmaurocaputo/seo-keywords-it"
+  },
+  "bugs": {
+    "url": "https://github.com/blackmaurocaputo/seo-keywords-it/issues"
+  }
+}
