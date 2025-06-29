@@ -1,3 +1,4 @@
+[![npm version](https://img.shields.io/npm/v/seo-keywords-it.svg)](https://www.npmjs.com/package/seo-keywords-it)
 
 # seo-keywords-it
 
@@ -6,7 +7,22 @@ Questa libreria JavaScript aiuta a individuare le parole chiave più rilevanti p
 
 ---
 
-##  Installazione
+## ✨ Caratteristiche
+
+- Estrae automaticamente le keyword principali da testi in italiano
+- Supporta personalizzazione di stopword e lunghezza minima
+- Nessuna dipendenza esterna
+- Modulare e facile da integrare
+
+---
+
+## ⚙️ Requisiti
+
+- Node.js >= 12
+
+---
+
+## Installazione
 
 ```bash
 npm install seo-keywords-it
@@ -14,10 +30,10 @@ npm install seo-keywords-it
 
 ---
 
-##  Utilizzo Base
+## Utilizzo Base
 
 ```js
-const { extractKeywords } = require('seo-keywords-it');
+const { extractKeywords } = require("seo-keywords-it");
 
 const testo = `
   La libreria seo-keywords-it estrae in modo semplice ed efficace le principali parole chiave dai testi italiani.
@@ -30,21 +46,21 @@ console.log(keywords); // Output: ['libreria', 'estrae', 'modo', ...]
 
 ---
 
-##  Opzioni Avanzate
+## Opzioni Avanzate
 
 La funzione `extractKeywords` può accettare un secondo parametro oggetto per personalizzare il risultato:
 
 ```js
 const keywords = extractKeywords(testo, {
-  maxKeywords: 10,          // Numero massimo di keyword restituite (default: 8 o 15 in base al testo)
-  minWordLength: 5,         // Lunghezza minima delle parole considerate (default: 4)
-  extraStopwords: ['modo']  // Stopword aggiuntive da escludere
+  maxKeywords: 10, // Numero massimo di keyword restituite (default: 8 o 15 in base al testo)
+  minWordLength: 5, // Lunghezza minima delle parole considerate (default: 4)
+  extraStopwords: ["modo"], // Stopword aggiuntive da escludere
 });
 ```
 
 ---
 
-##  API
+## API
 
 ### `extractKeywords(text, options)`
 
@@ -59,17 +75,18 @@ Un array di stringhe con le keyword più rilevanti trovate.
 
 ---
 
-##  Esempio Completo
+## Esempio Completo
 
 ```js
-const { extractKeywords } = require('seo-keywords-it');
+const { extractKeywords } = require("seo-keywords-it");
 
-const testo = "Questo è un testo di esempio per estrarre le keyword più importanti e ottimizzare la SEO.";
+const testo =
+  "Questo è un testo di esempio per estrarre le keyword più importanti e ottimizzare la SEO.";
 
 const keywords = extractKeywords(testo, {
   maxKeywords: 6,
   minWordLength: 5,
-  extraStopwords: ['importanti']
+  extraStopwords: ["importanti"],
 });
 
 console.log(keywords);
@@ -78,7 +95,7 @@ console.log(keywords);
 
 ---
 
-##  Note Tecniche
+## Note Tecniche
 
 - Funziona con Node.js in modalità CommonJS.
 - La lista delle stopword italiane si trova in `/src/stopwords-it.js` e può essere personalizzata facilmente.
@@ -87,13 +104,13 @@ console.log(keywords);
 
 ---
 
-##  Contribuisci
+## Contribuisci
 
 Se vuoi migliorare la libreria, aggiungere nuove funzionalità o estendere la lista delle stopword, apri una issue o una pull request su GitHub!
 
 ---
 
-##  Licenza
+## Licenza
 
 [MIT](./LICENSE)
 
