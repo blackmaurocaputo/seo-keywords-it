@@ -14,6 +14,11 @@ Questa libreria JavaScript aiuta a individuare le parole chiave più rilevanti p
 - Nessuna dipendenza esterna
 - Modulare e facile da integrare
 
+## UPDATE MULTI-LINGUA
+
+- Con il nuovo aggiornamento puoi settare la lingua nella funziona come parametro
+- supporta attualmente "it" "en"
+
 ---
 
 ## ⚙️ Requisiti
@@ -58,6 +63,20 @@ const keywords = extractKeywords(testo, {
 });
 ```
 
+ed un terzo parametro, default di base 'it' se non specificato.
+
+```js
+const keywords = extractKeywords(
+  testo,
+  {
+    maxKeywords: 10, // Numero massimo di keyword restituite (default: 8 o 15 in base al testo)
+    minWordLength: 5, // Lunghezza minima delle parole considerate (default: 4)
+    extraStopwords: ["modo"], // Stopword aggiuntive da escludere
+  },
+  "en" /** cambio lingua stopwords */
+);
+```
+
 ---
 
 ## API
@@ -69,9 +88,10 @@ const keywords = extractKeywords(testo, {
   - `maxKeywords` (`number`): Numero massimo di parole chiave da restituire.
   - `minWordLength` (`number`): Lunghezza minima delle parole da considerare come keyword.
   - `extraStopwords` (`string[]`): Altre parole da escludere oltre a quelle di default.
-
-**Restituisce:**  
-Un array di stringhe con le keyword più rilevanti trovate.
+- **language** (`object`,opzionale):
+  - `language` (`string`): Iniziali lingua : "it (default se non specificato), "en".
+    **Restituisce:**  
+    Un array di stringhe con le keyword più rilevanti trovate.
 
 ---
 
@@ -88,6 +108,7 @@ const keywords = extractKeywords(testo, {
   minWordLength: 5,
   extraStopwords: ["importanti"],
 });
+//Default lingua Italiano "it"
 
 console.log(keywords);
 // Output atteso: ['testo', 'esempio', 'estrarre', 'keyword', 'ottimizzare', 'seo']
@@ -99,6 +120,7 @@ console.log(keywords);
 
 - Funziona con Node.js in modalità CommonJS.
 - La lista delle stopword italiane si trova in `/src/stopwords-it.js` e può essere personalizzata facilmente.
+- La lista delle stopword englesi si trova in `/src/stopwords-en.js` e può essere personalizzata facilmente.
 - La funzione è **modulare** e facilmente integrabile in altri tool di text analysis, scraper o generatori di meta tag.
 - Non fa uso di dipendenze esterne.
 
