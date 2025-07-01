@@ -22,15 +22,15 @@ function extractKeywords(text, options = {}, language = "it") {
   switch (language) {
     case "it":
       stopWordsMerged = new Set([...stopWords, ...extraStopwords]);
-      console.log("usiamo la lingua italiana");
+      /* console.log("usiamo la lingua italiana"); */
       break;
     case "en":
       stopWordsMerged = new Set([...stopWordsEn, ...extraStopwords]);
-      console.log("usiamo la lingua inglese");
+      /* console.log("usiamo la lingua inglese"); */
       break;
     default:
       stopWordsMerged = new Set([...stopWords, ...extraStopwords]);
-      console.log("lingua non riconosciuta, usiamo la lingua italiana");
+      /* console.log("lingua non riconosciuta, usiamo la lingua italiana"); */
   }
 
   // Unisce le stopword di default con eventuali aggiuntive dell'utente

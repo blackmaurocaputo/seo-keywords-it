@@ -90,7 +90,8 @@ const keywords = extractKeywords(
   - `extraStopwords` (`string[]`): Altre parole da escludere oltre a quelle di default.
 - **language** (`object`,opzionale):
   - `language` (`string`): Iniziali lingua : "it (default se non specificato), "en".
-    **Restituisce:**  
+    
+**Restituisce:**  
     Un array di stringhe con le keyword più rilevanti trovate.
 
 ---
