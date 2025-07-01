@@ -117,4 +117,10 @@ Se vuoi migliorare la libreria, aggiungere nuove funzionalità o estendere la li
 ---
 
 **Autore:** Mauro Caputo  
-GitHub: [https://github.com/maurocaputo/seo-keywords-it](https://github.com/maurocaputo/seo-keywords-it)
+GitHub: [https://github.com/blackmaurocaputo/seo-keywords-it](https://github.com/blackmaurocaputo/seo-keywords-it)
+
+**Problemi:** Apri una segnalazione  
+GitHub: [https://github.com/blackmaurocaputo/seo-keywords-it/issues](https://github.com/blackmaurocaputo/seo-keywords-it/issues)
+
+**Modifiche:** Chiedi una modifica  
+GitHub: [https://github.com/blackmaurocaputo/seo-keywords-it/pulls](https://github.com/blackmaurocaputo/seo-keywords-it/pulls)
