@@ -2,22 +2,24 @@
 
 # seo-keywords-it
 
-Estrai facilmente le keyword principali da testi in italiano!  
+Estrai facilmente le keyword principali da testi in italiano (e inglese)!  
 Questa libreria JavaScript aiuta a individuare le parole chiave più rilevanti per SEO, meta tag, content analysis, e tanto altro.
 
 ---
 
 ## ✨ Caratteristiche
 
-- Estrae automaticamente le keyword principali da testi in italiano
+- Estrae automaticamente le keyword principali da testi in italiano e inglese
 - Supporta personalizzazione di stopword e lunghezza minima
+- Estrae anche frasi chiave (bigrammi) oltre alle singole parole
+- Ordina le keyword per frequenza e lunghezza, ottimizzato per SEO
 - Nessuna dipendenza esterna
 - Modulare e facile da integrare
 
 ## UPDATE MULTI-LINGUA
 
-- Con il nuovo aggiornamento puoi settare la lingua nella funziona come parametro
-- supporta attualmente "it" "en"
+- Puoi settare la lingua nella funzione come parametro
+- Supporta attualmente "it" e "en"
 
 ---
 
@@ -46,7 +48,13 @@ const testo = `
 `;
 
 const keywords = extractKeywords(testo);
-console.log(keywords); // Output: ['libreria', 'estrae', 'modo', ...]
+console.log(keywords);
+// Output: [
+//   { word: 'libreria', freq: 1 },
+//   { word: 'seo', freq: 1 },
+//   { word: 'parole chiave', freq: 1 },
+//   ...
+// ]
 ```
 
 ---
@@ -73,26 +81,50 @@ const keywords = extractKeywords(
     minWordLength: 5, // Lunghezza minima delle parole considerate (default: 4)
     extraStopwords: ["modo"], // Stopword aggiuntive da escludere
   },
-  "en" /** cambio lingua stopwords */
+  "en" // cambio lingua stopwords
 );
+```
+
+---
+
+## Output
+
+La funzione restituisce un array di oggetti con la parola/frase chiave e la sua frequenza di apparizione:
+
+```js
+[
+  { word: 'digitali', freq: 3 },
+  { word: 'strumenti digitali', freq: 2 },
+  { word: 'software su', freq: 2 }
+]
+```
+
+Le keyword possono essere sia parole singole che frasi (bigrammi), ordinate per frequenza e lunghezza, per massimizzare la rilevanza SEO.
+
+---
+
+### Come ottenere una stringa per il meta tag keywords
+
+```js
+const metaKeywords = keywords.map(k => k.word).join(', ');
+// metaKeywords: "digitali, strumenti digitali, software su"
 ```
 
 ---
 
 ## API
 
-### `extractKeywords(text, options)`
+### `extractKeywords(text, options, language)`
 
-- **text** (`string`): Il testo italiano da analizzare.
+- **text** (`string`): Il testo da analizzare.
 - **options** (`object`, opzionale):
   - `maxKeywords` (`number`): Numero massimo di parole chiave da restituire.
   - `minWordLength` (`number`): Lunghezza minima delle parole da considerare come keyword.
   - `extraStopwords` (`string[]`): Altre parole da escludere oltre a quelle di default.
-- **language** (`object`,opzionale):
-  - `language` (`string`): Iniziali lingua : "it (default se non specificato), "en".
-    
+- **language** (`string`, opzionale): "it" (default) o "en".
+
 **Restituisce:**  
-    Un array di stringhe con le keyword più rilevanti trovate.
+Un array di oggetti `{ word, freq }` con le keyword/frasi più rilevanti trovate.
 
 ---
 
@@ -109,10 +141,17 @@ const keywords = extractKeywords(testo, {
   minWordLength: 5,
   extraStopwords: ["importanti"],
 });
-//Default lingua Italiano "it"
+// Default lingua Italiano "it"
 
 console.log(keywords);
-// Output atteso: ['testo', 'esempio', 'estrarre', 'keyword', 'ottimizzare', 'seo']
+// Output atteso: [
+//   { word: 'esempio', freq: 1 },
+//   { word: 'estrarre', freq: 1 },
+//   { word: 'keyword', freq: 1 },
+//   { word: 'ottimizzare', freq: 1 },
+//   { word: 'testo esempio', freq: 1 },
+//   { word: 'keyword ottimizzare', freq: 1 }
+// ]
 ```
 
 ---
@@ -121,7 +160,7 @@ console.log(keywords);
 
 - Funziona con Node.js in modalità CommonJS.
 - La lista delle stopword italiane si trova in `/src/stopwords-it.js` e può essere personalizzata facilmente.
-- La lista delle stopword englesi si trova in `/src/stopwords-en.js` e può essere personalizzata facilmente.
+- La lista delle stopword inglesi si trova in `/src/stopwords-en.js` e può essere personalizzata facilmente.
 - La funzione è **modulare** e facilmente integrabile in altri tool di text analysis, scraper o generatori di meta tag.
 - Non fa uso di dipendenze esterne.
 

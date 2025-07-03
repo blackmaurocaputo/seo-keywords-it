@@ -1,5 +1,17 @@
 const stopWords = new Set([
   // Stopword base (da te + base italiana, unite e senza doppioni)
+  "ogni",
+  "giorno",
+  "chiunque",
+  "adatta",
+  "noi",
+  "te",
+  "tuo",
+  "tua",
+  "nostro",
+  "nostra",
+  "proprio",
+  "propria",
   "a",
   "adesso",
   "ai",
